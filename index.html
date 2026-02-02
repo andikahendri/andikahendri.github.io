@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andika Hendri | Portfolio Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --navy-sidebar: #10182b; 
+            --accent-red: #cc2121;  
+            --white: #ffffff;
+            --text-gray: #4a4a4a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Roboto', sans-serif; background: #f0f0f0; color: #333; }
+
+        .cv-wrapper {
+            width: 1000px;
+            margin: 40px auto;
+            background: var(--white);
+            display: flex;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            min-height: 2000px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 35%;
+            background-color: var(--navy-sidebar);
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 50px;
+        }
+
+        /* Aksen Kotak Merah Memanjang & Gradasi di Belakang Foto */
+        .photo-red-accent {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 500px;
+            background: linear-gradient(to bottom, var(--accent-red) 0%, rgba(16, 24, 43, 0) 100%);
+            z-index: 0;
+        }
+
+        .photo-section {
+            position: relative;
+            z-index: 2;
+            padding: 70px 0 30px 0;
+            text-align: center;
+        }
+
+        .profile-circle {
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            border: 8px solid var(--white); /* Bingkai Putih Presisi */
+            margin: 0 auto;
+            background: #fff;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .profile-circle img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* Jabatan & Info Perusahaan di Bawah Foto */
+        .sidebar-founder-info {
+            margin-top: 25px;
+            padding: 0 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+        .sidebar-founder-info span {
+            color: var(--accent-red);
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            /* Border Putih pada Tulisan (Text Outline) */
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        }
+        .founder-web {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.75rem;
+            margin-top: 10px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* Sidebar Headers */
+        .sidebar-header-box {
+            background: linear-gradient(to right, var(--accent-red) 75%, transparent);
+            padding: 12px 35px;
+            margin: 30px 0 20px 0;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sidebar-content { padding: 0 35px; font-size: 0.85rem; position: relative; z-index: 2; }
+        .contact-row { margin-bottom: 15px; display: flex; align-items: center; }
+        .contact-row i { color: var(--accent-red); margin-right: 15px; width: 15px; text-align: center; }
+
+        /* Progress Bar Kemampuan */
+        .skill-container { margin-bottom: 20px; }
+        .skill-label { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; font-size: 0.8rem; }
+        .skill-bar-bg { width: 100%; height: 10px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .skill-bar-fill { height: 100%; background: linear-gradient(to right, var(--accent-red), #ff4d4d); border-radius: 10px; }
+
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            width: 65%;
+            padding: 80px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .name-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 4rem;
+            letter-spacing: 12px;
+            line-height: 1.1;
+            color: var(--navy-sidebar);
+            text-transform: uppercase;
+        }
+
+        .job-box {
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent-red) 85%, transparent);
+            color: white;
+            padding: 12px 45px 12px 20px;
+            margin-top: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin: 60px 0 30px;
+        }
+        .red-bar-fade {
+            width: 8px; height: 38px;
+            background: linear-gradient(to bottom, var(--accent-red), transparent);
+            margin-right: 22px;
+        }
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--navy-sidebar);
+            text-transform: uppercase;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline { position: relative; padding-left: 35px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px; top: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent-red), transparent);
+        }
+        .timeline-item { position: relative; margin-bottom: 45px; }
+        .timeline-dot {
+            position: absolute;
+            left: -37px; top: 6px;
+            width: 15px; height: 15px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--accent-red);
+            z-index: 3;
+        }
+        .timeline-role { font-weight: 800; font-size: 1.1rem; color: var(--navy-sidebar); text-transform: uppercase; }
+        .timeline-org { color: var(--accent-red); font-weight: 700; font-size: 0.95rem; margin: 3px 0; }
+        .timeline-date { font-size: 0.85rem; color: #666; font-weight: 600; }
+        .timeline-desc { font-size: 0.88rem; color: var(--text-gray); margin-top: 8px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="cv-wrapper">
+    <div class="sidebar">
+        <div class="photo-red-accent"></div>
+
+        <div class="photo-section">
+            <div class="profile-circle">
+                <img src="img/andika.png" alt="Andika Hendri">
+            </div>
+            <div class="sidebar-founder-info">
+                Founder & Direktur
+                <span>PT AWAN KOMPUTINDO SENTOSA</span>
+                <a href="http://www.ackomputer.my.id" class="founder-web" target="_blank">www.ackomputer.my.id</a>
+            </div>
+        </div>
+
+        <div class="sidebar-header-box">Kontak Saya</div>
+        <div class="sidebar-content">
+            <div class="contact-row"><i class="fas fa-phone"></i> 0851-6264-3214</div>
+            <div class="contact-row"><i class="fas fa-envelope"></i> andikahendri777@gmail.com</div>
+            <div class="contact-row"><i class="fas fa-map-marker-alt"></i> Pelompek Pasar Baru, Jambi</div>
+        </div>
+
+        <div class="sidebar-header-box">Kemampuan</div>
+        <div class="sidebar-content">
+            <div class="skill-container">
+                <div class="skill-label"><span>Web Developer</span><span>90%</span></div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-container">
+                <div class="skill-label"><span>Networking</span><span>90%</span></div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-container">
+                <div class="skill-label"><span>Hardware</span><span>95%</span></div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-container">
+                <div class="skill-label"><span>Design Grafis</span><span>80%</span></div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+            </div>
+        </div>
+
+        <div class="sidebar-header-box">Pendidikan</div>
+        <div class="sidebar-content">
+            <div style="margin-bottom: 25px;">
+                <div style="color:rgba(255,255,255,0.6); font-weight:700; font-size:0.8rem">2023 - SEKARANG</div>
+                <div style="font-weight:700; text-transform:uppercase;">Universitas Siber Muhammadiyah</div>
+                <div style="font-size:0.8rem">S1 Informatika</div>
+            </div>
+            <div>
+                <div style="color:rgba(255,255,255,0.6); font-weight:700; font-size:0.8rem">2014 - 2017</div>
+                <div style="font-weight:700; text-transform:uppercase;">MAN Gunung Padang Panjang</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="name-header">
+            <h1>ANDIKA<br>HENDRI</h1>
+            <div class="job-box">IT Support Specialist</div>
+        </div>
+
+        <div class="section-header">
+            <div class="red-bar-fade"></div>
+            <h2>Tentang Saya</h2>
+        </div>
+        <p style="padding-left: 10px; line-height: 1.6; color: var(--text-gray);">
+            Mahasiswa Informatika yang berdedikasi tinggi dalam pengelolaan infrastruktur IT dan administrasi sistem. 
+            Sebagai Founder **PT AWAN KOMPUTINDO SENTOSA**, saya berfokus pada efisiensi layanan teknologi yang mencakup perbaikan perangkat keras, instalasi jaringan, dan manajemen server mandiri.
+        </p>
+
+        <div class="section-header">
+            <div class="red-bar-fade"></div>
+            <h2>Pengalaman Kerja</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-role">Senior IT Support Specialist</div>
+                <div class="timeline-org">PESANTREN AL-KAHFI</div>
+                <div class="timeline-date">Januari 2020 - Sekarang</div>
+                <p class="timeline-desc">Mengelola infrastruktur jaringan, pemeliharaan perangkat lunak/keras, serta keamanan sistem informasi pesantren.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-role">Network Administration / Sysadmin</div>
+                <div class="timeline-org">ADMIN TSN SPORT.NET / TSN-HOME</div>
+                <div class="timeline-date">Februari 2023 - Mei 2024</div>
+                <p class="timeline-desc">Monitoring jaringan, manajemen user, dan konfigurasi server untuk uptime optimal layanan.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-role">Teknisi Perangkat Keras (Freelance)</div>
+                <div class="timeline-org">KAITO KOMPUTER</div>
+                <div class="timeline-date">2022 - Sekarang</div>
+                <p class="timeline-desc">Diagnosa dan perbaikan PC/Laptop serta perakitan sistem komputer sesuai kebutuhan pelanggan.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-role">Sekretaris 2</div>
+                <div class="timeline-org">PPA LC SUNGAI PENUH</div>
+                <div class="timeline-date">September 2021 - Sekarang</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-role">Senior IT Support</div>
+                <div class="timeline-org">MA’HAD IAIN KERINCI</div>
+                <div class="timeline-date">Juli 2018 - Desember 2019</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
