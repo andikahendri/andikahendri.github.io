@@ -320,8 +320,24 @@
     </div>
 </div>
 
+<script>
+function sendEmail() {
+    // Kita pecah emailnya agar tidak terbaca bot secara utuh
+    var user = "andikahendri777";
+    var domain = "gmail.com";
+    var fullEmail = user + "@" + domain;
+    
+    // Tampilkan email asli di layar (opsional)
+    document.getElementById('email-display').innerText = fullEmail;
+    
+    // Buka Gmail/Mail Client
+    window.location.href = "mailto:" + fullEmail;
+}
+</script>
+    
 </body>
 
 </html>
+
 
 
